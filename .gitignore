@@ -5,6 +5,7 @@
 *.bin
 *.o
 *.a
+go-crud
 
 # Folders to ignore
 /build/
