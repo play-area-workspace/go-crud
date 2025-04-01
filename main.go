@@ -2,14 +2,23 @@ package main
 
 import (
 	"fmt"
-	"github.com/gin-gonic/gin"
 	"net/http"
+	"os"
+
+	"github.com/gin-gonic/gin"
+	"github.com/play-area-workspace/go-crud/initializers"
 )
 
-func main(){
-	fmt.Println("Hello123")
+func init() {
+	initializers.LoadEnvVariables()
+}
+
+func main() {
+
+	fmt.Printf("Hello123 %s", os.Getenv("PORT"))
+
 	router := gin.Default()
-	router.GET("/ping", func(c *gin.Context){
+	router.GET("/ping", func(c *gin.Context) {
 		c.JSON(200, gin.H{
 			"message": "pong",
 		})
